@@ -7,7 +7,7 @@ async def main():
     cookies = json.loads(open("./cookies.json", encoding="utf-8").read())  # might omit cookies option
     bot = await Chatbot.create(cookies=cookies)
     data = pd.read_excel('./label_data_0613.xlsx',sheet_name=[0],engine='openpyxl')
-    writer  =open('newbing_result.jsonl,'a+',encoding='utf-8')
+    writer  =open('newbing_result.jsonl','a+',encoding='utf-8')
     for idx,d in enumerate(data[0].values):
         if idx<500:continue 
         json_data = {'query':d,'res':None}
