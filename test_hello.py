@@ -21,6 +21,7 @@ async def main():
     根据上面描述，你可以先想一下,如果明白请先回答明白。现在给定文本：{} \n 请返回你生成的标题信息。""".format(query)， conversation_style=ConversationStyle.creative, simplify_response=True)
             json_data['res'] = response
         except Exception as e:
+            print(e)
         writer.write(json.dumps(json_data,ensure_ascii=False)+'\n')
         break 
     writer.close()
