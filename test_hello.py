@@ -10,7 +10,8 @@ async def main():
     writer  =open('newbing_result.jsonl','a+',encoding='utf-8')
     for idx,d in enumerate(data[0].values):
         if idx<500:continue 
-        json_data = {'query':d,'res':None}
+        query = str(d[0])
+        json_data = {'query':query,'res':None}
         try:
             response = await bot.ask(prompt="""你是一个信息抽取的专家，会根据用户描述抽取或者总结生成出准确的字段信息。给定以下文本信息请从里面抽取出标题字段。\n
     如果原文中出现了明确的标题描述，如会议名称、事件名称、宴会要求、招投标等则抽取这些原文的日程描述字段；如果原文中未出现明确的日程描述，则以名词和短语形式描述日程事件。\n
