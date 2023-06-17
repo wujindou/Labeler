@@ -24,7 +24,7 @@ async def main():
         except Exception as e:
             print(e)
 
-            break
+#             break
         writer.write(json.dumps(json_data,ensure_ascii=False)+'\n')
 #         break 
 #         (json.dumps(response, indent=2,ensure_ascii=False)) # Returns
