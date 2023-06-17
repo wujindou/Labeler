@@ -2,7 +2,8 @@ import asyncio, json
 from EdgeGPT.EdgeGPT import Chatbot, ConversationStyle
 
 async def main():
-    bot = await Chatbot.create() # Passing cookies is "optional", as explained above
+    cookies = json.loads(open("./cookies.json", encoding="utf-8").read())  # might omit cookies option
+    bot = await Chatbot.create(cookies=cookies)
     response = await bot.ask(prompt="Hello world", conversation_style=ConversationStyle.creative, simplify_response=True)
     print(json.dumps(response, indent=2)) # Returns
     """
