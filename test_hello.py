@@ -2,12 +2,11 @@ import asyncio, json
 from EdgeGPT.EdgeGPT import Chatbot, ConversationStyle
 import pandas as pd 
 
-
+writer  =open('newbing_result.jsonl','a+',encoding='utf-8')
 async def main():
     cookies = json.loads(open("./cookies.json", encoding="utf-8").read())  # might omit cookies option
     bot = await Chatbot.create(cookies=cookies)
     data = pd.read_excel('./label_data_0613.xlsx',sheet_name=[0],engine='openpyxl')
-    writer  =open('newbing_result.jsonl','a+',encoding='utf-8')
     for idx,d in enumerate(data[0].values):
         if idx<500:continue 
         query = str(d[0])
@@ -26,7 +25,6 @@ async def main():
             print(e)
         writer.write(json.dumps(json_data,ensure_ascii=False)+'\n')
         break 
-    writer.close()
 #         (json.dumps(response, indent=2,ensure_ascii=False)) # Returns
     """
     {
@@ -42,3 +40,5 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
+    writer.close()
+
