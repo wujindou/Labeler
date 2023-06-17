@@ -19,6 +19,7 @@ async def main():
     举例3: 输入: 各位积极分子：支部书记近期会专门开展关于“积极分子如何在新形势下做好日常政治生活的若干准则”的座谈会，请各位积极分子于9月10日上午9点前往党建处901会议室参加会议！\n输出:座谈会\n
     举例4: 输入： 前后端联动交流例会明天将在大会堂召开，请大家踊跃参加。\n输出： 前后端联动交流例会\n
     根据上面描述，你可以先想一下,如果明白请先回答明白。现在给定文本：{} \n 请返回你生成的标题信息。""".format(query),conversation_style=ConversationStyle.creative, simplify_response=True)
+            print(json.dumps(response,ensure_ascii=False))
             json_data['res'] = json.dumps(response,ensure_ascii=False)
         except Exception as e:
             print(e)
