@@ -22,7 +22,7 @@ async def main():
         print(json.dumps(response,ensure_ascii=False))
         json_data['res'] = json.dumps(response,ensure_ascii=False)
 #         except Exception as e:
-        print(e)
+#         print(e)
 
 #             break
         writer.write(json.dumps(json_data,ensure_ascii=False)+'\n')
