@@ -8,7 +8,7 @@ async def main():
     bot = await Chatbot.create(cookies=cookies)
     data = pd.read_excel('./label_data_0613.xlsx',sheet_name=[0],engine='openpyxl')
     for idx,d in enumerate(data[0].values):
-#         if idx<550:continue 
+#         if idx<1000:continue 
         query = str(d[0])
         json_data = {'query':query,'res':None}
 #         try:
